@@ -18,7 +18,7 @@
   <meta name="author" content="何焱">
   <meta name="keywords" content="">
   
-  <title>JDK安装 - tdcq&#39;Blog</title>
+  <title>基于CentOS7安装fastDFS - tdcq&#39;Blog</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -163,7 +163,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="JDK安装">
+            <span class="h2" id="subtitle" title="基于CentOS7安装fastDFS">
               
             </span>
 
@@ -173,8 +173,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2021-04-02 17:18" pubdate>
-        星期五, 四月 2日 2021, 5:18 下午
+      <time datetime="2021-04-08 16:03" pubdate>
+        星期四, 四月 8日 2021, 4:03 下午
       </time>
     </span>
   
@@ -185,7 +185,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      382 字
+      517 字
     </span>
   
 
@@ -195,7 +195,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      5
+      7
        分钟
     </span>
   
@@ -225,63 +225,81 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">JDK安装</h1>
+            <h1 style="display: none">基于CentOS7安装fastDFS</h1>
             
             <div class="markdown-body">
-              <h2 id="JDK安装"><a href="#JDK安装" class="headerlink" title="JDK安装"></a>JDK安装</h2><p>JDK是<font color=#E96B03 size=2 face="黑体">Java</font>语言的软件开发工具包，主要用于移动设备、嵌入式设备上的java应用程序。JDK是整个java开发的核心，它包含了JAVA的运行环境（JVM+Java系统类库）和JAVA工具。</p>
+              <p><font color=#E96B03 size=2 face="黑体">fastDFS</font>是以C语言开发的一项开源轻量级分布式文件系统，他对文件进行管理，主要功能有：文件存储，文件同步，文件访问（文件上传/下载）,特别适合以文件为载体的在线服务，如图片网站，视频网站等。</p>
 <blockquote>
-<p>面以<font color=#E96B03 size=2 face="黑体" >常规安装方式</font>为例（CentOS 7 的环境）</p>
+<p>适用范围</p>
 </blockquote>
-<blockquote>
-<p>首先更新已安装的包</p>
-</blockquote>
-<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">yum update</span><br></code></pre></td></tr></table></figure>
-<blockquote>
-<p>查看当前java版本</p>
-</blockquote>
-<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs applescript">java -<span class="hljs-built_in">version</span><br></code></pre></td></tr></table></figure>
-<blockquote>
-<p>检查是否含有老版本</p>
-</blockquote>
-<p>进一步查询系统已经安装的JDK</p>
-<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs vim">rpm -<span class="hljs-keyword">qa</span> | <span class="hljs-keyword">grep</span> -E <span class="hljs-string">&#x27;^(java|jdk)&#x27;</span><br></code></pre></td></tr></table></figure>
-
 <ul>
-<li>rpm -qa代表查询所有已安装的packages</li>
-<li>grep -E ‘^(java|jdk)’为通过正则表达式来过滤输出中以java或者jdk开头的结果</li>
-<li>输出是这样的：<br><img src="/source/images/1617357158.jpg" srcset="/img/loading.gif" lazyload alt="image"></li>
+<li>含有<font color=#E96B03 size=2 face="黑体">文件上传</font>功能的应用</li>
+<li>含有<font color=#E96B03 size=2 face="黑体">文件下载</font>功能的应用</li>
+<li><font color=#E96B03 size=2 face="黑体">分布式</font>应用（不在一台服务器上）</li>
+<li>上传结果：<font color=#E96B03 size=2 face="黑体">/group1/M00/00/00/CmQCyl_EY2eAGDp1AACK3ZiQsLg494.png</font></li>
+<li>支持<font color=#E96B03 size=2 face="黑体">分布式存储</font> <h2 id="Docker方式安装"><a href="#Docker方式安装" class="headerlink" title="Docker方式安装"></a>Docker方式安装</h2></li>
 </ul>
 <blockquote>
-<p>可以用以下命令删除老的jdk</p>
+<p>下载镜像</p>
 </blockquote>
-<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">yum</span> remove java-<span class="hljs-number">1</span>.<span class="hljs-number">6</span>.<span class="hljs-number">0</span>-openjdk<br></code></pre></td></tr></table></figure>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs nginx"><span class="hljs-attribute">docker</span> pull delron/fastdfs<br></code></pre></td></tr></table></figure>
 <blockquote>
-<p>下载到/your/path/data文件夹中</p>
+<p>查看本地仓库</p>
 </blockquote>
-<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs awk">mkdir <span class="hljs-regexp">/your/</span>path/data<br>cd <span class="hljs-regexp">/your/</span>path/data<br></code></pre></td></tr></table></figure>
+<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">docker images</span><br></code></pre></td></tr></table></figure>
+<blockquote>
+<p>开启端口</p>
+</blockquote>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs routeros">firewall-cmd <span class="hljs-attribute">--zone</span>=public  --permanent <span class="hljs-attribute">--add-port</span>=8888/tcp<br>firewall-cmd <span class="hljs-attribute">--zone</span>=public  --permanent <span class="hljs-attribute">--add-port</span>=22122/tcp<br>firewall-cmd <span class="hljs-attribute">--zone</span>=public  --permanent <span class="hljs-attribute">--add-port</span>=23000/tcp<br></code></pre></td></tr></table></figure>
 
+<ul>
+<li>8888 http访问端口</li>
+<li>22122 tracker端口</li>
+<li>23000 storage端口</li>
+</ul>
 <blockquote>
-<p>从oracle官网下载jdk</p>
+<p>刷新端口</p>
 </blockquote>
-<figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs perl">wget --<span class="hljs-keyword">no</span>-cookies --<span class="hljs-keyword">no</span>-check-certificate --header <span class="hljs-string">&quot;Cookie: gpw_e24=http%3A%2F%2Fwww.oracle.com%2F; oraclelicense=accept-securebackup-cookie&quot;</span> <span class="hljs-string">&quot;http://download.oracle.com/otn-pub/java/jdk/8u131-b11/d54c1d3a095b4ff2b6607d096fa80163/jdk-8u131-linux-x64.rpm&quot;</span> -O <span class="hljs-string">&quot;jdk-1.8.rpm&quot;</span><br></code></pre></td></tr></table></figure>
-<p>说明：新改版后的下载页面需要加上cookie头部才能用wget顺利下载，版本号可以在官网上浏览后自行选择。<br>官方地址：<a target="_blank" rel="noopener" href="http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html">http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html</a></p>
+<figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ada">firewall-cmd <span class="hljs-comment">--reload</span><br></code></pre></td></tr></table></figure>
 <blockquote>
-<p>wget方式安装</p>
+<p>查看端口</p>
 </blockquote>
-<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cmake">yum -y <span class="hljs-keyword">install</span> wget<br></code></pre></td></tr></table></figure>
+<figure class="highlight brainfuck"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs brainfuck"><span class="hljs-comment">firewall</span><span class="hljs-literal">-</span><span class="hljs-comment">cmd</span> --<span class="hljs-comment">zone=public</span> --<span class="hljs-comment">list</span><span class="hljs-literal">-</span><span class="hljs-comment">ports</span><br></code></pre></td></tr></table></figure>
 <blockquote>
-<p>安装Java</p>
+<p>创建tracker容器</p>
 </blockquote>
-<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">rpm</span> -ivh jdk-<span class="hljs-number">1</span>.<span class="hljs-number">8</span>.rpm<br></code></pre></td></tr></table></figure>
-<p>说明：装好后，再次确认当前系统默认的java版本</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs awk">docker run -dti --network=host --name tracker -v <span class="hljs-regexp">/data/</span>fastDfs<span class="hljs-regexp">/tracker:/</span>var<span class="hljs-regexp">/fdfs -v /</span>etc<span class="hljs-regexp">/localtime:/</span>etc<span class="hljs-regexp">/localtime delron/</span>fastdfs tracker<br></code></pre></td></tr></table></figure>
 <blockquote>
-<p>查看版本</p>
+<p>容器开机自启</p>
 </blockquote>
-<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs applescript">java -<span class="hljs-built_in">version</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs pgsql">docker <span class="hljs-keyword">update</span> <span class="hljs-comment">--restart=always tracker</span><br></code></pre></td></tr></table></figure>
 <blockquote>
-<p>设置环境变量</p>
+<p>增加storage可写权限</p>
 </blockquote>
-<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs routeros"><span class="hljs-builtin-name">export</span> <span class="hljs-attribute">JAVA_HOME</span>=/usr/java/jdk1.8.0_131/<br><span class="hljs-builtin-name">export</span> <span class="hljs-attribute">PATH</span>=<span class="hljs-variable">$PATH</span>:$JAVA_HOME<br>source /etc/profile<br><br>echo JAVA_HOME<br></code></pre></td></tr></table></figure>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs awk">mkdir -p <span class="hljs-regexp">/data/</span>fastDfs<span class="hljs-regexp">/storage/</span>logs<br><br>chmod <span class="hljs-number">777</span> <span class="hljs-regexp">/data/</span>fastDfs<span class="hljs-regexp">/storage/</span>logs<br></code></pre></td></tr></table></figure>
+<blockquote>
+<p>创建storage容器</p>
+</blockquote>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs awk">docker run -dti --network=host --name storage -e TRACKER_SERVER=`<span class="hljs-number">192.168</span>.<span class="hljs-number">211.200</span>`:<span class="hljs-number">22122</span> -v <span class="hljs-regexp">/data/</span>fastDfs<span class="hljs-regexp">/storage:/</span>var<span class="hljs-regexp">/fdfs  -v /</span>etc<span class="hljs-regexp">/localtime:/</span>etc<span class="hljs-regexp">/localtime  delron/</span>fastdfs storage<br></code></pre></td></tr></table></figure>
+<p>其中<font color=#E96B03 size=2 face="黑体"> 192.168.211.200</font>为内网ip，需要修改</p>
+<blockquote>
+<p>容器开机自启</p>
+</blockquote>
+<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs pgsql">docker <span class="hljs-keyword">update</span> <span class="hljs-comment">--restart=always storage</span><br></code></pre></td></tr></table></figure>
+<blockquote>
+<p>测试</p>
+</blockquote>
+<ul>
+<li>测试成功后，说明上传已经可以了<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs awk"><span class="hljs-comment">## 进入容器</span><br>docker exec -it storage bash<br><br><span class="hljs-comment">## 设置nginx</span><br>cd <span class="hljs-regexp">/usr/</span>local<span class="hljs-regexp">/nginx/</span>conf<br>vi nginx.conf<br><br><span class="hljs-comment">## 测试上传</span><br>cd <span class="hljs-regexp">/etc/</span>fdfs<br>echo hello=fuck&gt;a.txt<br><span class="hljs-comment">## 上传</span><br><span class="hljs-regexp">/usr/</span>bin<span class="hljs-regexp">/fdfs_upload_file /</span>etc<span class="hljs-regexp">/fdfs/</span>client.conf a.txt<br><br><span class="hljs-comment">## 上传结果</span><br>group1<span class="hljs-regexp">/M00/</span><span class="hljs-number">00</span><span class="hljs-regexp">/00/</span>wKjTyF9SW9qAejgfAAAAC9k-OCU699.txt<br><br><span class="hljs-comment">## 重启storage</span><br>docker restart storage<br></code></pre></td></tr></table></figure></li>
+</ul>
+<blockquote>
+<p>nginx配置</p>
+</blockquote>
+<ul>
+<li>记得开启<font color=#E96B03 size=2 face="黑体">22122</font>对外端口权限，否则外网无法上传文件</li>
+<li>一般情况下，文件上传只在<font color=#E96B03 size=2 face="黑体">服务器内部</font>进行</li>
+<li>最后需要配置Nginx配置，用来接收外网的访问<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs nginx"><span class="hljs-attribute">location</span> /group[<span class="hljs-number">0</span>-<span class="hljs-number">9</span>]/M00 &#123;<br>    <span class="hljs-comment">## ip+端口为dfs内网ip+端口</span><br>    <span class="hljs-attribute">proxy_pass</span>  http://10.100.2.130:8888;<br>    <span class="hljs-comment">## 这里配置，可以自定义下载重命名</span><br>    <span class="hljs-attribute">if</span> ($arg_attname <span class="hljs-regexp">~* \.(doc|docx|pdf|zip|rar|txt|jar)$)</span> &#123;<br>        <span class="hljs-attribute">add_header</span> Content-Disposition <span class="hljs-string">&quot;attachment;filename=$arg_attname&quot;</span>;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure></li>
+</ul>
 
             </div>
             <hr>
@@ -292,7 +310,7 @@
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/java/">java</a>
+                      <a class="hover-with-bg" href="/tags/contos/">contos</a>
                     
                   </div>
                 
@@ -309,18 +327,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2021/04/08/fastDFS%E5%AE%89%E8%A3%85/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">基于CentOS7安装fastDFS</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2021/04/02/centos%E5%AE%89%E8%A3%85Docker/">
-                        <span class="hidden-mobile">基于CentOS7安装Docker</span>
+                      <a href="/2021/04/02/JDK%E5%AE%89%E8%A3%85/">
+                        <span class="hidden-mobile">JDK安装</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
