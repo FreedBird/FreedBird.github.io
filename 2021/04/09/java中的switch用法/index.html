@@ -18,7 +18,7 @@
   <meta name="author" content="何焱">
   <meta name="keywords" content="">
   
-  <title>基于CentOS7安装fastDFS - tdcq&#39;Blog</title>
+  <title>java中的switch用法 - tdcq&#39;Blog</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -163,7 +163,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="基于CentOS7安装fastDFS">
+            <span class="h2" id="subtitle" title="java中的switch用法">
               
             </span>
 
@@ -173,8 +173,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2021-04-08 16:03" pubdate>
-        星期四, 四月 8日 2021, 4:03 下午
+      <time datetime="2021-04-09 10:09" pubdate>
+        星期五, 四月 9日 2021, 10:09 上午
       </time>
     </span>
   
@@ -185,7 +185,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      517 字
+      42 字
     </span>
   
 
@@ -195,7 +195,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      7
+      1
        分钟
     </span>
   
@@ -225,94 +225,16 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">基于CentOS7安装fastDFS</h1>
+            <h1 style="display: none">java中的switch用法</h1>
             
             <div class="markdown-body">
-              <p><font color="#E96B03" size="2" face="黑体">fastDFS</font>是以C语言开发的一项开源轻量级分布式文件系统，他对文件进行管理，主要功能有：文件存储，文件同步，文件访问（文件上传/下载）,特别适合以文件为载体的在线服务，如图片网站，视频网站等。</p>
-<blockquote>
-<p>适用范围</p>
-</blockquote>
-<ul>
-<li>含有<font color="#E96B03" size="2" face="黑体">文件上传</font>功能的应用</li>
-<li>含有<font color="#E96B03" size="2" face="黑体">文件下载</font>功能的应用</li>
-<li><font color="#E96B03" size="2" face="黑体">分布式</font>应用（不在一台服务器上）</li>
-<li>上传结果：<font color="#E96B03" size="2" face="黑体">/group1/M00/00/00/CmQCyl_EY2eAGDp1AACK3ZiQsLg494.png</font></li>
-<li>支持<font color="#E96B03" size="2" face="黑体">分布式存储</font> <h2 id="Docker方式安装"><a href="#Docker方式安装" class="headerlink" title="Docker方式安装"></a>Docker方式安装</h2></li>
-</ul>
-<blockquote>
-<p>下载镜像</p>
-</blockquote>
-<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs nginx"><span class="hljs-attribute">docker</span> pull delron/fastdfs<br></code></pre></td></tr></table></figure>
-<blockquote>
-<p>查看本地仓库</p>
-</blockquote>
-<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">docker images</span><br></code></pre></td></tr></table></figure>
-<blockquote>
-<p>开启端口</p>
-</blockquote>
-<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs routeros">firewall-cmd <span class="hljs-attribute">--zone</span>=public  --permanent <span class="hljs-attribute">--add-port</span>=8888/tcp<br>firewall-cmd <span class="hljs-attribute">--zone</span>=public  --permanent <span class="hljs-attribute">--add-port</span>=22122/tcp<br>firewall-cmd <span class="hljs-attribute">--zone</span>=public  --permanent <span class="hljs-attribute">--add-port</span>=23000/tcp<br></code></pre></td></tr></table></figure>
-
-<ul>
-<li>8888 http访问端口</li>
-<li>22122 tracker端口</li>
-<li>23000 storage端口</li>
-</ul>
-<blockquote>
-<p>刷新端口</p>
-</blockquote>
-<figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ada">firewall-cmd <span class="hljs-comment">--reload</span><br></code></pre></td></tr></table></figure>
-<blockquote>
-<p>查看端口</p>
-</blockquote>
-<figure class="highlight brainfuck"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs brainfuck"><span class="hljs-comment">firewall</span><span class="hljs-literal">-</span><span class="hljs-comment">cmd</span> --<span class="hljs-comment">zone=public</span> --<span class="hljs-comment">list</span><span class="hljs-literal">-</span><span class="hljs-comment">ports</span><br></code></pre></td></tr></table></figure>
-<blockquote>
-<p>创建tracker容器</p>
-</blockquote>
-<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs awk">docker run -dti --network=host --name tracker -v <span class="hljs-regexp">/data/</span>fastDfs<span class="hljs-regexp">/tracker:/</span>var<span class="hljs-regexp">/fdfs -v /</span>etc<span class="hljs-regexp">/localtime:/</span>etc<span class="hljs-regexp">/localtime delron/</span>fastdfs tracker<br></code></pre></td></tr></table></figure>
-<blockquote>
-<p>容器开机自启</p>
-</blockquote>
-<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs pgsql">docker <span class="hljs-keyword">update</span> <span class="hljs-comment">--restart=always tracker</span><br></code></pre></td></tr></table></figure>
-<blockquote>
-<p>增加storage可写权限</p>
-</blockquote>
-<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs awk">mkdir -p <span class="hljs-regexp">/data/</span>fastDfs<span class="hljs-regexp">/storage/</span>logs<br><br>chmod <span class="hljs-number">777</span> <span class="hljs-regexp">/data/</span>fastDfs<span class="hljs-regexp">/storage/</span>logs<br></code></pre></td></tr></table></figure>
-<blockquote>
-<p>创建storage容器</p>
-</blockquote>
-<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs awk">docker run -dti --network=host --name storage -e TRACKER_SERVER=`<span class="hljs-number">192.168</span>.<span class="hljs-number">211.200</span>`:<span class="hljs-number">22122</span> -v <span class="hljs-regexp">/data/</span>fastDfs<span class="hljs-regexp">/storage:/</span>var<span class="hljs-regexp">/fdfs  -v /</span>etc<span class="hljs-regexp">/localtime:/</span>etc<span class="hljs-regexp">/localtime  delron/</span>fastdfs storage<br></code></pre></td></tr></table></figure>
-<p>其中<font color="#E96B03" size="2" face="黑体"> 192.168.211.200</font>为内网ip，需要修改</p>
-<blockquote>
-<p>容器开机自启</p>
-</blockquote>
-<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs pgsql">docker <span class="hljs-keyword">update</span> <span class="hljs-comment">--restart=always storage</span><br></code></pre></td></tr></table></figure>
-<blockquote>
-<p>测试</p>
-</blockquote>
-<ul>
-<li>测试成功后，说明上传已经可以了<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs awk"><span class="hljs-comment">## 进入容器</span><br>docker exec -it storage bash<br><br><span class="hljs-comment">## 设置nginx</span><br>cd <span class="hljs-regexp">/usr/</span>local<span class="hljs-regexp">/nginx/</span>conf<br>vi nginx.conf<br><br><span class="hljs-comment">## 测试上传</span><br>cd <span class="hljs-regexp">/etc/</span>fdfs<br>echo hello=fuck&gt;a.txt<br><span class="hljs-comment">## 上传</span><br><span class="hljs-regexp">/usr/</span>bin<span class="hljs-regexp">/fdfs_upload_file /</span>etc<span class="hljs-regexp">/fdfs/</span>client.conf a.txt<br><br><span class="hljs-comment">## 上传结果</span><br>group1<span class="hljs-regexp">/M00/</span><span class="hljs-number">00</span><span class="hljs-regexp">/00/</span>wKjTyF9SW9qAejgfAAAAC9k-OCU699.txt<br><br><span class="hljs-comment">## 重启storage</span><br>docker restart storage<br></code></pre></td></tr></table></figure></li>
-</ul>
-<blockquote>
-<p>nginx配置</p>
-</blockquote>
-<ul>
-<li>记得开启<font color="#E96B03" size="2" face="黑体">22122</font>对外端口权限，否则外网无法上传文件</li>
-<li>一般情况下，文件上传只在<font color="#E96B03" size="2" face="黑体">服务器内部</font>进行</li>
-<li>最后需要配置Nginx配置，用来接收外网的访问<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs nginx"><span class="hljs-attribute">location</span> /group[<span class="hljs-number">0</span>-<span class="hljs-number">9</span>]/M00 &#123;<br>    <span class="hljs-comment">## ip+端口为dfs内网ip+端口</span><br>    <span class="hljs-attribute">proxy_pass</span>  http://10.100.2.130:8888;<br>    <span class="hljs-comment">## 这里配置，可以自定义下载重命名</span><br>    <span class="hljs-attribute">if</span> ($arg_attname <span class="hljs-regexp">~* \.(doc|docx|pdf|zip|rar|txt|jar)$)</span> &#123;<br>        <span class="hljs-attribute">add_header</span> Content-Disposition <span class="hljs-string">&quot;attachment;filename=$arg_attname&quot;</span>;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure></li>
-</ul>
+              <h1 id="程序流程控制：switch-case结构"><a href="#程序流程控制：switch-case结构" class="headerlink" title="程序流程控制：switch-case结构"></a>程序流程控制：switch-case结构</h1><p>```<br>switch(表达式){<br>    case 常量1：<br>        语句1;<br>        // break;<br>    case 常量2:<br>        语句2;<br>        // break;<br>    case 常量N:<br>        语句N;<br>        //break;<br>    default:<br>        语句;<br>        // break;<br>}</p>
 
             </div>
             <hr>
             <div>
               <div class="post-metas mb-3">
                 
-                
-                  <div class="post-meta">
-                    <i class="iconfont icon-tags"></i>
-                    
-                      <a class="hover-with-bg" href="/tags/contos/">contos</a>
-                    
-                  </div>
                 
               </div>
               
@@ -327,9 +249,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2021/04/09/java%E4%B8%AD%E7%9A%84switch%E7%94%A8%E6%B3%95/">
+                      <a href="/2021/04/09/centos7%E5%AE%89%E8%A3%85Kafka/">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">java中的switch用法</span>
+                        <span class="hidden-mobile">centos7安装Kafka</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -337,8 +259,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2021/04/02/JDK%E5%AE%89%E8%A3%85/">
-                        <span class="hidden-mobile">JDK安装</span>
+                      <a href="/2021/04/08/fastDFS%E5%AE%89%E8%A3%85/">
+                        <span class="hidden-mobile">基于CentOS7安装fastDFS</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
