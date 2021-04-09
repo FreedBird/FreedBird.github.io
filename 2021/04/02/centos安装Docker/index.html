@@ -185,7 +185,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      380 字
+      382 字
     </span>
   
 
@@ -228,16 +228,17 @@
             <h1 style="display: none">基于CentOS7安装Docker</h1>
             
             <div class="markdown-body">
-              <h2 id="Docker安装"><a href="#Docker安装" class="headerlink" title="Docker安装"></a>Docker安装</h2><p>Docker是一个开源的应用容器引擎，让开发者可以打包他们的应用以及依赖包到一个可移植的镜像中，然后发布到任何流行的 Linux或Windows 机器上，也可以实现虚拟化。容器是完全使用沙箱机制，相互之间不会有任何接口。</p>
+              <h2 id="docker安装"><a class="markdownIt-Anchor" href="#docker安装">#</a> Docker 安装</h2>
+<p>Docker 是一个开源的应用容器引擎，让开发者可以打包他们的应用以及依赖包到一个可移植的镜像中，然后发布到任何流行的 Linux 或 Windows 机器上，也可以实现虚拟化。容器是完全使用沙箱机制，相互之间不会有任何接口。</p>
 <blockquote>
-<p>下面以centos7服务器为例</p>
+<p>下面以 centos7 服务器为例</p>
 </blockquote>
 <blockquote>
 <p>下载安装</p>
 </blockquote>
 <figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs livecodeserver">curl -fsSL <span class="hljs-keyword">https</span>://<span class="hljs-built_in">get</span>.docker.com | bash -s docker <span class="hljs-comment">--mirror Aliyun</span><br></code></pre></td></tr></table></figure>
 <blockquote>
-<p>启动docker</p>
+<p>启动 docker</p>
 </blockquote>
 <figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs crmsh">service docker <span class="hljs-literal">start</span><br></code></pre></td></tr></table></figure>
 <blockquote>
@@ -247,11 +248,11 @@
 <blockquote>
 <p>配置镜像加速器</p>
 </blockquote>
-<p>您可以通过修改daemon配置文件/etc/docker/daemon.json来使用加速器，下面地址为自己申请的阿里云镜像仓库地址</p>
+<p>您可以通过修改 daemon 配置文件 /etc/docker/daemon.json 来使用加速器，下面地址为自己申请的阿里云镜像仓库地址</p>
 <figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs awk">vim <span class="hljs-regexp">/etc/</span>docker/daemon.json<br></code></pre></td></tr></table></figure>
 <figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs json">&#123;<br>  <span class="hljs-attr">&quot;registry-mirrors&quot;</span>: [<span class="hljs-string">&quot;https://6khlzwla.mirror.aliyuncs.com&quot;</span>]<br>&#125;<br></code></pre></td></tr></table></figure>
 <blockquote>
-<p>重启dcoker</p>
+<p>重启 dcoker</p>
 </blockquote>
 <figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">service docker restart</span><br></code></pre></td></tr></table></figure>
 <blockquote>
@@ -270,7 +271,6 @@
 <p>docler 常用命令</p>
 </blockquote>
 <figure class="highlight vala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><code class="hljs vala"><span class="hljs-meta">## 重启docker</span><br>docker restart 容器名称<br><span class="hljs-meta">## 删除docker容器</span><br>docker container rm  &lt;container ID&gt;<br><br><span class="hljs-meta">## 查看镜像</span><br>docker images<br><span class="hljs-meta">## 查看镜像容器</span><br>docker ps<br>docker ps -a<br><span class="hljs-meta">## 搜索镜像</span><br>docker search xxx<br><span class="hljs-meta">## 查看日志</span><br>docker log -f 容器启动后生成唯一ID<br><span class="hljs-meta">## 清理镜像</span><br>docker images|grep none|awk <span class="hljs-string">&#x27;&#123;print $3&#125;&#x27;</span>|xargs docker rmi<br><br><span class="hljs-meta">## 进入容器</span><br>docker exec -it 容器id bash<br><span class="hljs-meta">## 清理内存</span><br>echo <span class="hljs-number">1</span> &gt; /proc/sys/vm/drop_caches<br><br><span class="hljs-meta"># 文件拷贝</span><br>docker cp 目录 容器名:目录<br>docker cp 容器名:目录 目录<br></code></pre></td></tr></table></figure>
-
 
             </div>
             <hr>

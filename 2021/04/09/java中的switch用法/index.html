@@ -185,7 +185,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      42 字
+      491 字
     </span>
   
 
@@ -195,7 +195,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      1
+      6
        分钟
     </span>
   
@@ -228,7 +228,29 @@
             <h1 style="display: none">java中的switch用法</h1>
             
             <div class="markdown-body">
-              <h1 id="程序流程控制：switch-case结构"><a href="#程序流程控制：switch-case结构" class="headerlink" title="程序流程控制：switch-case结构"></a>程序流程控制：switch-case结构</h1><p>```<br>switch(表达式){<br>    case 常量1：<br>        语句1;<br>        // break;<br>    case 常量2:<br>        语句2;<br>        // break;<br>    case 常量N:<br>        语句N;<br>        //break;<br>    default:<br>        语句;<br>        // break;<br>}</p>
+              <h1 id="程序流程控制switch-case结构"><a class="markdownIt-Anchor" href="#程序流程控制switch-case结构">#</a> 程序流程控制：switch-case 结构</h1>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs awk">switch(表达式)&#123;<br>    case 常量<span class="hljs-number">1</span>：<br>        语句<span class="hljs-number">1</span>;<br>        <span class="hljs-regexp">//</span> <span class="hljs-keyword">break</span>;<br>    case 常量<span class="hljs-number">2</span>:<br>        语句<span class="hljs-number">2</span>;<br>        <span class="hljs-regexp">//</span> <span class="hljs-keyword">break</span>;<br>    case 常量N:<br>        语句N;<br>        <span class="hljs-regexp">//</span><span class="hljs-keyword">break</span>;<br>    default:<br>        语句;<br>        <span class="hljs-regexp">//</span> <span class="hljs-keyword">break</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p><img src="/2021/04/09/java%E4%B8%AD%E7%9A%84switch%E7%94%A8%E6%B3%95/%E4%BC%81%E4%B8%9A%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_16179396445768.png" srcset="/img/loading.gif" lazyload alt="img"></p>
+<h3 id="代码如下所示"><a class="markdownIt-Anchor" href="#代码如下所示">#</a> 代码如下所示：</h3>
+<figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs arduino"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Test</span> &#123;</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(<span class="hljs-keyword">String</span>[] args)</span> </span>&#123;<br>        <span class="hljs-keyword">int</span> number = <span class="hljs-number">2</span>;<br>        <span class="hljs-built_in"><span class="hljs-keyword">switch</span></span> (number) &#123;<br>            <span class="hljs-keyword">case</span> <span class="hljs-number">0</span>:<br>                System.out.<span class="hljs-built_in">println</span>(<span class="hljs-string">&quot;当前匹配的是0&quot;</span>);<br>                <span class="hljs-keyword">break</span>;<br>            <span class="hljs-keyword">case</span> <span class="hljs-number">1</span>:<br>                System.out.<span class="hljs-built_in">println</span>(<span class="hljs-string">&quot;当前匹配的是1&quot;</span>);<br>                <span class="hljs-keyword">break</span>;<br>            <span class="hljs-keyword">case</span> <span class="hljs-number">2</span>:<br>                System.out.<span class="hljs-built_in">println</span>(<span class="hljs-string">&quot;当前匹配的是2&quot;</span>);<br>                <span class="hljs-keyword">break</span>;<br>            <span class="hljs-keyword">case</span> <span class="hljs-number">3</span>:<br>                System.out.<span class="hljs-built_in">println</span>(<span class="hljs-string">&quot;当前匹配的是3&quot;</span>);<br>                <span class="hljs-keyword">break</span>;<br>            <span class="hljs-keyword">case</span> <span class="hljs-number">4</span>:<br>                System.out.<span class="hljs-built_in">println</span>(<span class="hljs-string">&quot;当前匹配的是4&quot;</span>);<br>                <span class="hljs-keyword">break</span>;<br>            <span class="hljs-keyword">default</span>:<br>                System.out.<span class="hljs-built_in">println</span>(<span class="hljs-string">&quot;什么都没匹配到&quot;</span>);<br>                <span class="hljs-keyword">break</span>;<br>        &#125;<br>    &#125;<br></code></pre></td></tr></table></figure>
+<h3 id="运行结果如下所示"><a class="markdownIt-Anchor" href="#运行结果如下所示">#</a> 运行结果如下所示：</h3>
+<p><img src="/2021/04/09/java%E4%B8%AD%E7%9A%84switch%E7%94%A8%E6%B3%95/%E4%BC%81%E4%B8%9A%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_16179401593785.png" srcset="/img/loading.gif" lazyload alt="img"></p>
+<blockquote>
+<p>总结说明</p>
+</blockquote>
+<ul>
+<li>根据 switch 表达式中的值，依次匹配各个 case 中的常量。一旦匹配成功，则进入相应 case 结构中，<br>
+调用其执行语句。当调用完执行语句以后，则任然继续向下执行其他 casej = 结构中的执行语句，直到遇到 brak 关键字或此 switch-case 结构末尾结束为止。</li>
+<li>break, 可以使用在 switch-case 结构中，表示一旦执行到此关键字，就跳出 switch-case 结构。</li>
+<li>switch-case 结构中的表达，只能是如下 6 种数据类型之一：byte, short, char, int, 枚举类型 (JDK5.0 候新增), String (JDK7.0 候新增)</li>
+<li>case 之后只能声明常量，不能声明范围。</li>
+<li>break 关键字是可选的。</li>
+<li>default: 相当于 if-else 结构中的 else.<br>
+default 结构是可选的</li>
+<li>如果 switch-case 结构中的多个 case 的执行语句相同，则可以考虑进行合并。</li>
+<li>凡是可以使用 switch-case 的结构，都可以转换为 if-else。反之，不成立。</li>
+<li>我们写分支结构的时候，当发现既可以使用 switch-case，（同时，switch 中表达式的取值情况不太多）。又可以使用 if-else 时，我们优先考虑选择使用 switch-case。原因使用 switch-case 的执行效率稍高。</li>
+</ul>
 
             </div>
             <hr>

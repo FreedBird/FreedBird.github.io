@@ -185,7 +185,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      361 字
+      363 字
     </span>
   
 
@@ -228,47 +228,54 @@
             <h1 style="display: none">hexo 本地图片不显示问题解决方案</h1>
             
             <div class="markdown-body">
-              <h1 id="hexo-本地图片不显示"><a href="#hexo-本地图片不显示" class="headerlink" title="hexo 本地图片不显示"></a>hexo 本地图片不显示</h1><blockquote>
-<p>1.修改配置文件</p>
+              <h1 id="hexo-本地图片不显示"><a class="markdownIt-Anchor" href="#hexo-本地图片不显示">#</a> hexo 本地图片不显示</h1>
+<blockquote>
+<p>1. 修改配置文件</p>
 </blockquote>
 <p>修改文件<font color="#E96B03" size="4" face="黑体">_config.yml</font>里的<font color="#E96B03" size="4" face="黑体">post_asset_folder:</font>这个选项设置为<font color="#E96B03" size="4" face="黑体">true</font></p>
 <ul>
-<li>修改之后，再使用<font color="#E96B03" size="4" face="黑体">hexo n “hexo 本地图片不显示”</font>时，目录的样子是<figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs mipsasm">hexo 本地图片不显示<br>   ├── <span class="hljs-number">01</span>.<span class="hljs-keyword">jpg</span><br><span class="hljs-keyword"> </span>  ├── <span class="hljs-number">02</span>.<span class="hljs-keyword">jpg</span><br><span class="hljs-keyword"> </span>  └── <span class="hljs-number">03</span>.<span class="hljs-keyword">jpg</span><br><span class="hljs-keyword"> </span>  ...<br>   hexo 本地图片不显示.md<br></code></pre></td></tr></table></figure>
-<blockquote>
-<p>2.安装插件hexo-asset-image</p>
-</blockquote>
-</li>
-<li>GitHub地址 <a target="_blank" rel="noopener" href="https://github.com/xcodebuild/hexo-asset-image">hexo-asset-image</a></li>
-<li>npm安装 (需要提前安装Node.js)<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs awk">npm install https:<span class="hljs-regexp">//gi</span>thub.com<span class="hljs-regexp">/CodeFalling/</span>hexo-asset-image --save<br></code></pre></td></tr></table></figure>
-<img src="/2021/04/09/hexo-%E6%9C%AC%E5%9C%B0%E5%9B%BE%E7%89%87%E4%B8%8D%E6%98%BE%E7%A4%BA%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/16179381622353.jpg" srcset="/img/loading.gif" lazyload alt="img"></li>
+<li>修改之后，再使用<font color="#E96B03" size="4" face="黑体">hexo n &quot;hexo 本地图片不显示&quot;</font>时，目录的样子是</li>
 </ul>
-<p><font color="#FC1944" size="5" face="黑体">注意!!!</font>请不要使用<font color="#E96B03" size="4" face="黑体">npm install hexo-asset-image –save</font>这个命令安装,<font color="#FC1944" size="5" face="黑体">版本号</font>不对</p>
+<figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs mipsasm">hexo 本地图片不显示<br>   ├── <span class="hljs-number">01</span>.<span class="hljs-keyword">jpg</span><br><span class="hljs-keyword"> </span>  ├── <span class="hljs-number">02</span>.<span class="hljs-keyword">jpg</span><br><span class="hljs-keyword"> </span>  └── <span class="hljs-number">03</span>.<span class="hljs-keyword">jpg</span><br><span class="hljs-keyword"> </span>  ...<br>   hexo 本地图片不显示.md<br></code></pre></td></tr></table></figure>
+<blockquote>
+<p>2. 安装插件 hexo-asset-image</p>
+</blockquote>
+<ul>
+<li>GitHub 地址 <a target="_blank" rel="noopener" href="https://github.com/xcodebuild/hexo-asset-image">hexo-asset-image</a></li>
+<li>npm 安装 (需要提前安装 Node.js)</li>
+</ul>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs awk">npm install https:<span class="hljs-regexp">//gi</span>thub.com<span class="hljs-regexp">/CodeFalling/</span>hexo-asset-image --save<br></code></pre></td></tr></table></figure>
+<p><img src="/2021/04/09/hexo-%E6%9C%AC%E5%9C%B0%E5%9B%BE%E7%89%87%E4%B8%8D%E6%98%BE%E7%A4%BA%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/16179381622353.jpg" srcset="/img/loading.gif" lazyload alt="img"></p>
+<p><font color="#FC1944" size="5" face="黑体">注意！！！</font>请不要使用<font color="#E96B03" size="4" face="黑体">npm install hexo-asset-image --save</font>这个命令安装，<font color="#FC1944" size="5" face="黑体">版本号</font>不对</p>
 <p><img src="/2021/04/09/hexo-%E6%9C%AC%E5%9C%B0%E5%9B%BE%E7%89%87%E4%B8%8D%E6%98%BE%E7%A4%BA%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/16179386612344543.jpg" srcset="/img/loading.gif" lazyload alt="img"></p>
 <blockquote>
-<p>3.版本差异</p>
+<p>3. 版本差异</p>
 </blockquote>
-<p>1.0.0.5版本<br><img src="/2021/04/09/hexo-%E6%9C%AC%E5%9C%B0%E5%9B%BE%E7%89%87%E4%B8%8D%E6%98%BE%E7%A4%BA%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/%E4%BC%81%E4%B8%9A%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_16179388154879.png" srcset="/img/loading.gif" lazyload alt="img"></p>
-<p>1.0.0版本<br><img src="/2021/04/09/hexo-%E6%9C%AC%E5%9C%B0%E5%9B%BE%E7%89%87%E4%B8%8D%E6%98%BE%E7%A4%BA%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/%E4%BC%81%E4%B8%9A%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_16179388959401.png" srcset="/img/loading.gif" lazyload alt="img"></p>
+<p>1.0.0.5 版本<br>
+<img src="/2021/04/09/hexo-%E6%9C%AC%E5%9C%B0%E5%9B%BE%E7%89%87%E4%B8%8D%E6%98%BE%E7%A4%BA%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/%E4%BC%81%E4%B8%9A%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_16179388154879.png" srcset="/img/loading.gif" lazyload alt="img"></p>
+<p>1.0.0 版本<br>
+<img src="/2021/04/09/hexo-%E6%9C%AC%E5%9C%B0%E5%9B%BE%E7%89%87%E4%B8%8D%E6%98%BE%E7%A4%BA%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/%E4%BC%81%E4%B8%9A%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_16179388959401.png" srcset="/img/loading.gif" lazyload alt="img"></p>
 <blockquote>
-<p>在md中书写格式（相对路径）</p>
+<p>在 md 中书写格式（相对路径）</p>
 </blockquote>
-<p>在md使用如下形式引用图片</p>
+<p>在 md 使用如下形式引用图片</p>
 <figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs less">!<span class="hljs-selector-attr">[01]</span>(hexo 本地图片不显示/<span class="hljs-number">01</span>.jpg)<br></code></pre></td></tr></table></figure>
-<p><font color="#FC1944" size="5" face="黑体">注意 </font>这里要使用<font color="#E96B03" size="4" face="黑体"> “/“</font></p>
+<p><font color="#FC1944" size="5" face="黑体">注意 </font>这里要使用<font color="#E96B03" size="4" face="黑体"> “/”</font></p>
 <blockquote>
-<p>md文件名称和图片存放文件夹名称不同时</p>
+<p>md 文件名称和图片存放文件夹名称不同时</p>
 </blockquote>
-<p><font color="#FC1944" size="5" face="黑体">注意 </font>重命名md文件之后记得重命名文件夹，当md文件的名称与文件夹名称不同时，映射关系以md文件名称为主。会导致src图片路径找不到</p>
+<p><font color="#FC1944" size="5" face="黑体">注意 </font>重命名 md 文件之后记得重命名文件夹，当 md 文件的名称与文件夹名称不同时，映射关系以 md 文件名称为主。会导致 src 图片路径找不到</p>
 <p><img src="/2021/04/09/hexo-%E6%9C%AC%E5%9C%B0%E5%9B%BE%E7%89%87%E4%B8%8D%E6%98%BE%E7%A4%BA%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/%E4%BC%81%E4%B8%9A%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_16179391173106.png" srcset="/img/loading.gif" lazyload alt="img"></p>
 <ul>
-<li>文件和文件夹以url中的名称保持一致</li>
+<li>文件和文件夹以 url 中的名称保持一致</li>
 </ul>
-<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><ul>
+<h1 id="总结"><a class="markdownIt-Anchor" href="#总结">#</a> 总结</h1>
+<ul>
 <li>检查<font color="#E96B03" size="4" face="黑体">_config.yml</font>文件的<font color="#E96B03" size="4" face="黑体">post_asset_folder:</font>选项是否为<font color="#E96B03" size="4" face="黑体">true</font></li>
 <li>检查创建文件之后的目录结构</li>
 <li>检查<font color="#E96B03" size="4" face="黑体">hexo-asset-image</font>插件的版本</li>
 <li>检查路径引用图片的路径使用<font color="#E96B03" size="4" face="黑体"> /</font></li>
-<li>检查md文件的文件名称和图片存放文件夹名称是否相同</li>
+<li>检查 md 文件的文件名称和图片存放文件夹名称是否相同</li>
 </ul>
 
             </div>
